@@ -122,12 +122,12 @@ if pilihan_halaman == "Overview Dashboard":
 
         sales_by_payment = filtered_df.groupby(
             'category'
-        )['quantity'].sum().reset_index()
+        )['totalprice_rupiah'].sum().reset_index()
 
         fig_payment = px.bar(
             sales_by_payment,
             x='category',
-            y='quantity',
+            y='totalprice_rupiah',
             color='category'
         )
 
@@ -148,3 +148,4 @@ if pilihan_halaman == "Overview Dashboard":
             color='territory_groups'
         )
         st.plotly_chart(fig_region, use_container_width=True)
+
